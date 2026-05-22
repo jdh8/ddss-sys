@@ -1,0 +1,46 @@
+[package]
+name = "ddss-sys"
+version = "0.1.0"
+authors = ["Chen-Pang He (https://jdh8.org)"]
+edition = "2024"
+rust-version = "1.85"
+description = "Generated bindings to ddss, a performance-oriented fork of the DDS double dummy solver for bridge"
+repository = "https://github.com/jdh8/ddss-sys"
+homepage = "https://github.com/jdh8/ddss-sys"
+documentation = "https://docs.rs/ddss-sys"
+readme = "README.md"
+license = "Apache-2.0"
+categories = ["game-development", "external-ffi-bindings", "no-std"]
+keywords = ["bridge", "double-dummy"]
+exclude = ["/vendor/hands", "/vendor/doc", "/vendor/test", "/vendor/examples"]
+
+[features]
+# Let DDS write "dump.txt" to the cwd on solver errors. Diagnostic; off by default.
+debug-dump = []
+
+# Write per-thread "toplevel*.txt" with top-level AB call info. Diagnostic; off by default.
+debug-top-level = []
+
+# Write per-thread "ABstats*.txt" with alpha-beta search stats. Diagnostic; off by default.
+debug-ab-stats = []
+
+# Write per-thread "TTstats*.txt" with transposition-table memory usage. Diagnostic; off by default.
+debug-tt-stats = []
+
+# Write per-thread "timer*.txt" with function timings. Diagnostic; off by default.
+debug-timing = []
+
+# Write per-thread "movestats*.txt" with move-generation quality stats. Diagnostic; off by default.
+debug-moves = []
+
+[build-dependencies]
+anyhow = "1"
+bindgen = "0.72"
+cc = { version = "1", features = ["parallel"] }
+glob = "0.3"
+
+[profile.dev]
+opt-level = 3
+
+[dev-dependencies]
+parking_lot = "0.12"
