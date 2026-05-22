@@ -1,5 +1,9 @@
 # ddss-sys
 
+[![Build Status](https://github.com/jdh8/ddss-sys/actions/workflows/rust.yml/badge.svg)](https://github.com/jdh8/ddss-sys)
+[![Crates.io](https://img.shields.io/crates/v/ddss-sys)](https://crates.io/crates/ddss-sys)
+[![Docs.rs](https://docs.rs/ddss-sys/badge.svg)](https://docs.rs/ddss-sys)
+
 Generated bindings to [bsalita/ddss](https://github.com/bsalita/ddss), a
 performance-oriented fork of [DDS](https://github.com/dds-bridge/dds), the C++
 double dummy solver for contract bridge. The fork is based on DDS **2.9.0** and
