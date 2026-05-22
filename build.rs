@@ -1,4 +1,5 @@
 use anyhow::Context as _;
+use std::fmt::Write as _;
 use std::path::{Path, PathBuf};
 
 fn main() -> anyhow::Result<()> {
@@ -80,8 +81,8 @@ fn main() -> anyhow::Result<()> {
 fn is_packaging(manifest_dir: &Path) -> bool {
     let mut comps = manifest_dir.components().rev();
     comps.next().is_some()
-        && comps.next().map(|c| c.as_os_str()) == Some("package".as_ref())
-        && comps.next().map(|c| c.as_os_str()) == Some("target".as_ref())
+        && comps.next().map(std::path::Component::as_os_str) == Some("package".as_ref())
+        && comps.next().map(std::path::Component::as_os_str) == Some("target".as_ref())
 }
 
 fn write_compile_commands(
@@ -126,7 +127,7 @@ fn json_string(s: &str) -> String {
             '\n' => out.push_str("\\n"),
             '\t' => out.push_str("\\t"),
             '\r' => out.push_str("\\r"),
-            c if (c as u32) < 0x20 => out.push_str(&format!("\\u{:04x}", c as u32)),
+            c if (c as u32) < 0x20 => write!(out, "\\u{:04x}", c as u32).unwrap(),
             c => out.push(c),
         }
     }
