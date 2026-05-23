@@ -22,6 +22,3 @@ ABstats*.txt
 TTstats*.txt
 timer*.txt
 movestats*.txt
-
-# Per-machine compile DB emitted by build.rs for clangd
-/compile_commands.json

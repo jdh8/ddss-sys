@@ -1,0 +1,15 @@
+CompileFlags:
+  Add:
+    - -xc++
+    - -std=c++17
+    - -I../vendor/include
+    - -I../vendor/src
+    - -DDDS_THREADS_STL
+    - -DDDS_NO_DUMP_ON_ERROR
+  Compiler: clang++
+
+---
+If:
+  PathMatch: vendor/.*
+Diagnostics:
+  Suppress: '*'

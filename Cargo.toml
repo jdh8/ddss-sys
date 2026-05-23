@@ -1,6 +1,6 @@
 [package]
 name = "ddss-sys"
-version = "0.1.1-dev"
+version = "0.1.1"
 authors = ["Chen-Pang He (https://jdh8.org)"]
 edition = "2024"
 rust-version = "1.85"

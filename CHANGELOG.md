@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.1] - 2026-05-23
+
+### Fixed
+
+- docs.rs build for v0.1.0 failed with `Error: writing compile_commands.json
+  / Caused by: Read-only file system (os error 30)` because `build.rs` wrote
+  `compile_commands.json` into the crate root, which the docs.rs sandbox
+  mounts read-only. The per-build `compile_commands.json` emission is removed
+  in favor of a committed `.clangd` at the crate root that gives clangd the
+  flags needed for files in `src/` (where the wrapper lives) and suppresses
+  diagnostics under `vendor/` (vendor code is not maintained here). build.rs
+  now writes nothing outside `OUT_DIR`, so docs.rs is happy without any
+  env-var gating.
+
 ## [0.1.0] - 2026-05-23
 
 Initial release.
