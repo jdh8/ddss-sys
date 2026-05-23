@@ -36,3 +36,6 @@ Initial release.
   `.txt` diagnostic files into the cwd. All off by default.
 - `.gitignore` covers editor scratch (`.vscode/`, `.cache/`) and the
   per-thread DDS dump filenames produced by the debug features.
+
+[0.1.0]: https://github.com/jdh8/ddss-sys/releases/tag/0.1.0
+[0.1.1]: https://github.com/jdh8/ddss-sys/releases/tag/0.1.1
