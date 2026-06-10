@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.2] - 2026-06-10
+
+### Changed
+
+- Add `links = "ddss"` to `[package]` in `Cargo.toml` so Cargo treats this
+  crate as a native-link provider and lib.rs no longer reports the
+  `*-sys crate without links property` warning.
+
 ## [0.1.1] - 2026-05-23
 
 ### Fixed
@@ -37,5 +45,6 @@ Initial release.
 - `.gitignore` covers editor scratch (`.vscode/`, `.cache/`) and the
   per-thread DDS dump filenames produced by the debug features.
 
+[0.1.2]: https://github.com/jdh8/ddss-sys/releases/tag/0.1.2
 [0.1.0]: https://github.com/jdh8/ddss-sys/releases/tag/0.1.0
 [0.1.1]: https://github.com/jdh8/ddss-sys/releases/tag/0.1.1
